@@ -61,13 +61,47 @@ public class SingleLinkedList<T> {
         }
     }
 
+    public boolean delNode(T isData) {
+        if (this.head == null) {
+            return false;
+        } else {
+            Node<T> node = this.head;
+            if(node.data == isData) {
+                this.head = this.head.next;
+                return true;
+            } else {
+                while (node.next != null) {
+                    if(node.next.data == isData) {
+                        node.next = node.next.next;
+                        return true;
+                    }
+                    node = node.next;
+                }
+                return false;
+            }
+        }
+    }
+
     public static void main(String[] args) {
         SingleLinkedList<Integer> MyLinkedList = new SingleLinkedList<>();
+//        MyLinkedList.addNode(1);
+//        MyLinkedList.addNode(2);
+//        MyLinkedList.addNode(3);
+//        MyLinkedList.addNode(3);
+//
+//        MyLinkedList.printAll();
+//        MyLinkedList.addNodeInside(5,1);
+//
+//        MyLinkedList.printAll();
+
         MyLinkedList.addNode(1);
         MyLinkedList.addNode(2);
         MyLinkedList.addNode(3);
+        MyLinkedList.addNode(4);
+        MyLinkedList.addNode(5);
+
+        MyLinkedList.delNode(20);
 
         MyLinkedList.printAll();
     }
-
 }
