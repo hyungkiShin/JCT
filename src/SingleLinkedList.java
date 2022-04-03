@@ -12,12 +12,13 @@ public class SingleLinkedList<T> {
     }
 
     public void addNode(T data) {
-        if (head == null) {
-            head = new Node<T>(data);
-        } else {
-            Node<T> node = this.head;
-            while (node.next != null) {
+        if (head == null) { // head 가 없으면 
+            head = new Node<T>(data); // 새로 객체를 만들어 줄것이야.
+        } else { // head 가 있으면,
+            Node<T> node = this.head; // NodeType 의 변수로 받아서
+            while (node.next != null) { // 해당 변수에 next 가 null 이 아니라면
                 node = node.next;
+                System.out.println("node.data = " + node.data);
             }
             node.next = new Node<T>(data);
         }
